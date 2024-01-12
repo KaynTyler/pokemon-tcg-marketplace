@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Card;
+use Pokemon\Pokemon;
 use Illuminate\Http\Request;
 
 class PokemonTCGController extends Controller
@@ -10,6 +11,7 @@ class PokemonTCGController extends Controller
      public function index()
     {
         $cards = Card::all();
+        $cards = Pokemon::Card()->all();
         return response()->json($cards);
     }
 
@@ -70,7 +72,7 @@ class PokemonTCGController extends Controller
         return response()->json($cards);
     }
 
-    
+
 
 
      public function activateCard($id)
